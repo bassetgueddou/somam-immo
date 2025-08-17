@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-md-5">
+    <h2>Ajouter un bien</h2>
+    <form method="post">
+      {{ form.hidden_tag() }}
+      <div class="mb-3">{{ form.title.label }} {{ form.title(class='form-control') }}</div>
+      <div class="mb-3">{{ form.city.label }} {{ form.city(class='form-control') }}</div>
+      <div class="mb-3">{{ form.price.label }} {{ form.price(class='form-control') }}</div>
+      <div class="mb-3">{{ form.surface.label }} {{ form.surface(class='form-control') }}</div>
+      <div class="mb-3">{{ form.rooms.label }} {{ form.rooms(class='form-control') }}</div>
+      <div class="mb-3">{{ form.image_url.label }} {{ form.image_url(class='form-control') }}</div>
+      <div class="mb-3">{{ form.description.label }} {{ form.description(class='form-control', rows=5) }}</div>
+      <button class="btn btn-primary">Enregistrer</button>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <h2>Biens</h2>
+    <ul class="list-group">
+      {% for b in items %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <div class="fw-semibold">{{ b.title }}</div>
+          <div class="small text-muted">{{ b.city }} · {{ b.surface }} m² · {{ b.rooms }} pièces</div>
+        </div>
+        <form method="post" action="{{ url_for('admin.delete_property', item_id=b.id) }}">
+          <button class="btn btn-sm btn-outline-danger">Supprimer</button>
+        </form>
+      </li>
+      {% else %}
+      <li class="list-group-item">Aucun bien.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

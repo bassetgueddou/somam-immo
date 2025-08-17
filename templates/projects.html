@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="mb-3">Nos projets</h1>
+<form class="row g-2 mb-3">
+  <div class="col-auto">
+    <input class="form-control" type="search" name="q" placeholder="Rechercher..." value="{{ q or '' }}">
+  </div>
+  <div class="col-auto">
+    <button class="btn btn-secondary" type="submit">Filtrer</button>
+  </div>
+</form>
+<div class="row g-3">
+  {% for p in items %}
+  <div class="col-md-4">
+    <div class="card h-100">
+      <img src="{{ p.image_url or url_for('static', filename='img/placeholder.jpg') }}" class="card-img-top" alt="projet">
+      <div class="card-body">
+        <h5 class="card-title">{{ p.name }}</h5>
+        <p class="card-text small text-muted">Statut : {{ p.status }}</p>
+        <p class="card-text">{{ p.description[:140] }}{% if p.description|length > 140 %}...{% endif %}</p>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <p>Aucun projet trouvé.</p>
+  {% endfor %}
+</div>
+{% endblock %}

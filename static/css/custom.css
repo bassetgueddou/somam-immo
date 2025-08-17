@@ -1,0 +1,45 @@
+/* Hero / titre page */
+.page-title {
+  margin-bottom: 1rem;
+}
+.hero {
+  padding: 3rem 2rem;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.35)),
+              url('/static/img/projets/el_bahia.jpg') center/cover no-repeat;
+  color: #fff;
+  border-radius: .75rem;
+  margin-bottom: 2rem;
+}
+
+.price { font-weight: 700; letter-spacing: .2px; }
+.badge-da { background: #eef2ff; color: #3446eb; border-radius: .5rem; padding: .15rem .45rem; font-size: .8rem; }
+
+
+/* Cards + images */
+.card { border: 0; box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+.card img { object-fit: cover; height: 200px; }
+
+/* Badges / petits labels */
+.badge-soft { background: #eef2ff; color: #3949ab; }
+
+/* Footer léger */
+footer { font-size: .925rem; }
+
+/* Navbar logo alignment */
+.navbar-brand img { display:inline-block; vertical-align:middle; }
+
+/* Améliore le rendu des captions */
+.carousel-caption h5 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.carousel-caption p {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+/* Ombres sur les images pour donner du relief */
+.carousel-item img {
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.4);
+}
